@@ -9,7 +9,7 @@ import {
 import { auth, db } from "./firebase/firebase-config";
 import { Alert, Card, Form, Button } from "react-bootstrap";
 
-const SignUp = () => {
+function SignUp() {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
   const [iName, setName] = useState("");
@@ -35,24 +35,22 @@ const SignUp = () => {
         auth,
         registerEmail,
         registerPassword
-      );
-      //   .then((creds) => {
-      //     const state = {
-      //       name: iName,
-      //       univeristy: iUniveristy,
-      //       country: iCountry,
-      //     };
-      //     db.collection("users")
-      //       .doc(creds.user.uid)
-      //       .set(state)
-      //       .then(() => {
-      //         console.log("Document successfully written!");
-      //       })
-      //       .catch((e) => {
-      //         console.error("Error writing document: ", e);
-      //       });
-      //     console.log(creds.user.uid);
-      //   });
+      ).then((creds) => {
+        db.collection("users")
+          .addDoc({
+            uid: creds.user.uid,
+            name: iName,
+            univeristy: iUniveristy,
+            country: iCountry,
+          })
+          .then(() => {
+            console.log("Document successfully written!");
+          })
+          .catch((e) => {
+            console.error("Error writing document: ", e);
+          });
+        console.log(creds.user.uid);
+      });
     } catch (error) {
       setError("Unable to Sign Up");
     }
@@ -142,9 +140,9 @@ const SignUp = () => {
               Sign Up
             </Button>
 
-            {/* <Button onClick={logout} className="w-100" type="submit">
+            <Button onClick={logout} className="w-100" type="submit">
               Sign Out
-            </Button> */}
+            </Button>
           </Form>
         </Card.Body>
       </Card>
@@ -153,6 +151,6 @@ const SignUp = () => {
       </div>
     </>
   );
-};
+}
 
 export default SignUp;

@@ -28,7 +28,7 @@
 1. React js
 2. Socket IO
 3. WebRTC
-4. < Tech >
+4. Firebase
 
 ## Link
 

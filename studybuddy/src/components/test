@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
@@ -12,66 +11,34 @@ import { Alert, Card, Form, Button } from "react-bootstrap";
 const SignUp = () => {
   const [registerEmail, setRegisterEmail] = useState("");
   const [registerPassword, setRegisterPassword] = useState("");
-  const [iName, setName] = useState("");
-  const [iUniveristy, setUniversity] = useState("");
-  const [iCountry, setCountry] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
+  const [Name, setName] = useState("");
+  const [Univeristy, setUniversity] = useState("");
+  const [Country, setCountry] = useState("");
+
   const [loading, setLoading] = useState(false);
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
 
-  useEffect(
-    onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    })
-  );
+  onAuthStateChanged(auth, (currentUser) => {
+    setUser(currentUser);
+  });
 
   const register = async () => {
     try {
       setLoading(true);
-      setError("");
       const user = await createUserWithEmailAndPassword(
         auth,
         registerEmail,
         registerPassword
-      );
-      //   .then((creds) => {
-      //     const state = {
-      //       name: iName,
-      //       univeristy: iUniveristy,
-      //       country: iCountry,
-      //     };
-      //     db.collection("users")
-      //       .doc(creds.user.uid)
-      //       .set(state)
-      //       .then(() => {
-      //         console.log("Document successfully written!");
-      //       })
-      //       .catch((e) => {
-      //         console.error("Error writing document: ", e);
-      //       });
-      //     console.log(creds.user.uid);
-      //   });
+      ).then((creds) => {
+        db.collection("users").doc(creds.user.uid).set({
+          name: Name,
+          Country: Country,
+          University: Univeristy,
+        });
+      });
     } catch (error) {
       setError("Unable to Sign Up");
-    }
-    setLoading(false);
-  };
-
-  const login = async (e) => {
-    e.preventDefault();
-
-    try {
-      setLoading(true);
-      setError("");
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-    } catch (error) {
-      setError("Unable to Sign in");
     }
     setLoading(false);
   };
@@ -84,7 +51,7 @@ const SignUp = () => {
     <>
       <Card>
         <Card.Body>
-          <h2 className="text-center mb-4 p-4">Sign Up</h2>
+          <h2 className="text-center mb-4">Sign Up</h2>
           {error && <Alert variant="danger">{error}</Alert>}
 
           <Form onSubmit={register}>
@@ -141,10 +108,9 @@ const SignUp = () => {
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
             </Button>
-
-            {/* <Button onClick={logout} className="w-100" type="submit">
+            <Button onClick={logout} className="w-100" type="submit">
               Sign Out
-            </Button> */}
+            </Button>
           </Form>
         </Card.Body>
       </Card>

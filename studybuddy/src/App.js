@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Chat from "./components/Chat";
@@ -9,12 +9,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import SignUp from "./components/SignUp";
 import { onAuthStateChanged } from "firebase/auth"; //To see if user is logged in or not
 import { auth } from "./components/firebase/firebase-config";
+
 const App = () => {
   //see if user logged in
   const [user, setUser] = useState({});
-  onAuthStateChanged(auth, (currentUser) => {
-    setUser(currentUser);
-  });
+  useEffect(
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    }),
+    []
+  );
 
   return (
     <div className="App">
@@ -39,7 +43,7 @@ const App = () => {
         </Container>
       </Navbar>
       <Home />
-      <SignIn />
+      <SignUp />
     </div>
   );
 };

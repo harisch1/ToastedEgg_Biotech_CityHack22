@@ -19,9 +19,12 @@
 
 ## 3 Most Impactful Features of the Project (with Screenshot and Short Description (150 words))
 
-1. < First Feature >
-2. < Second Feature >
-3. < Third Feature >
+1. Authentication with Firebase
+   Each new user is required to present a university account to verify that all users are univeristy students. Our primary market and first adopters are university students who are experiencing depression.
+2. AudioChat with authenticated Users
+   Like our competitors of omegle and chatroullette, we pair new users with users who are very different from each other. People are assigned priority queues of who next to match with. The order is determined by different country, different university and different majors. With the consent
+3. Suicide Watch with Speech-to-text and sentiment analysis
+   Harnessing the power of responsible AI, we analyze the call content of the users and predict the suicide probability and suicide risk. This analysis is done in parallel during the call and outputs the results at the end for a specified admin. For the sake of privacy and anonymity, none of the data is stored.
 
 ## Tech used (as many as required)
 
@@ -29,7 +32,11 @@
 2. Socket IO
 3. WebRTC
 4. Firebase
+5. Express js
+6. Material UI
+7. Bootstrap
+8. Node js
 
 ## Link
 
-- < 3 minute Youtube Video Link for Project Demo >
+-

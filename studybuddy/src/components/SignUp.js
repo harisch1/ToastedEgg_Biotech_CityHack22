@@ -35,22 +35,23 @@ function SignUp() {
         auth,
         registerEmail,
         registerPassword
-      ).then((creds) => {
-        db.collection("users")
-          .addDoc({
-            uid: creds.user.uid,
-            name: iName,
-            univeristy: iUniveristy,
-            country: iCountry,
-          })
-          .then(() => {
-            console.log("Document successfully written!");
-          })
-          .catch((e) => {
-            console.error("Error writing document: ", e);
-          });
-        console.log(creds.user.uid);
-      });
+      );
+      // ).then((creds) => {
+      //   db.collection("users")
+      //     .addDoc({
+      //       uid: creds.user.uid,
+      //       name: iName,
+      //       univeristy: iUniveristy,
+      //       country: iCountry,
+      //     })
+      //     .then(() => {
+      //       console.log("Document successfully written!");
+      //     })
+      //     .catch((e) => {
+      //       console.error("Error writing document: ", e);
+      //     });
+      //   console.log(creds.user.uid);
+      // });
     } catch (error) {
       setError("Unable to Sign Up");
     }

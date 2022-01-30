@@ -1,3 +1,5 @@
+import { Link, Route, Switch } from "react-router-dom";
+
 export const Navigation = (props) => {
   return (
     <nav id='menu' className='navbar navbar-default navbar-fixed-top'>
@@ -25,23 +27,24 @@ export const Navigation = (props) => {
           id='bs-example-navbar-collapse-1'
         >
           <ul className='nav navbar-nav navbar-right'>
+            
             <li>
-              <a href='#about' className='page-scroll'>
+              <a href="#about" className='page-scroll'>
                 About
               </a>
             </li>
             <li>
-              <a href='#services' className='page-scroll'>
-                Chat Now
+              <a className='page-scroll'>
+                <Link to="/about"> Chat Now</Link> 
               </a>
             </li>
             <li>
-              <a href='#portfolio' className='page-scroll'>
-                Gallery
+              <a href='#team' className='page-scroll'>
+                Team
               </a>
             </li>
             <li>
-              <a href='#testimonials' className='page-scroll'>
+              <a href='#signin' className='page-scroll'>
                 SignIn
               </a>
             </li>

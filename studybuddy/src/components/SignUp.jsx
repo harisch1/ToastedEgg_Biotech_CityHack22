@@ -79,8 +79,13 @@ function SignUp() {
     await signOut(auth);
   };
 
+  const styleCard = {
+    width:"50%",
+    margin:"auto",
+  };
   return (
     <>
+    <div style = {styleCard}>
       <Card>
         <Card.Body>
           <h2 className="text-center mb-4 p-4">Sign Up</h2>
@@ -137,6 +142,7 @@ function SignUp() {
                 required
               />
             </Form.Group>
+            <div style={{alignItems:"end"}}>
             <Button disabled={loading} className="w-100" type="submit">
               Sign Up
             </Button>
@@ -144,9 +150,12 @@ function SignUp() {
             <Button onClick={logout} className="w-100" type="submit">
               Sign Out
             </Button>
+            </div>
+            
           </Form>
         </Card.Body>
       </Card>
+      </div>
       <div className="w-100 text-center mt-2">
         Already have an account? <a href="#signin">Sign In</a>
       </div>
@@ -154,4 +163,4 @@ function SignUp() {
   );
 }
 
-export default SignUp;
+export default SignUp

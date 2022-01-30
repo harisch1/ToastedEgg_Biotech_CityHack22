@@ -86,22 +86,22 @@
     ],
     "Team": [{
             "img": "img/team/01.jpg",
-            "name": "John Doe",
-            "job": "Director"
+            "name": "Scottie Yoon",
+            "job": "Lead"
         },
         {
-            "img": "img/team/02.jpg",
-            "name": "Mike Doe",
-            "job": "Senior Designer"
+            "img": "img/team/01.jpg",
+            "name": "Haris Choudhary",
+            "job": "Computer Science "
         }, {
-            "img": "img/team/03.jpg",
-            "name": "Jane Doe",
-            "job": "Senior Designer"
+            "img": "img/team/01.jpg",
+            "name": "Jocelyn",
+            "job": "Computer Science"
         },
         {
-            "img": "img/team/04.jpg",
-            "name": "Karen Doe",
-            "job": "Project Manager"
+            "img": "img/team/01.jpg",
+            "name": "Kalvin",
+            "job": "Computer Science"
         }
     ],
     "Contact": {

@@ -35,12 +35,7 @@ const App = () => {
       <Header data={landingPageData.Header} />
       <About data={landingPageData.About} />
       <Team data={landingPageData.Team} />
-<<<<<<< HEAD
       {!user ? <SignUp /> : <Chat />}
-=======
-      <SignUp/>
-      <Chat />
->>>>>>> d65a5eb41cce083534a5527a4ae362ac14a3217e
     </div>
   );
 };

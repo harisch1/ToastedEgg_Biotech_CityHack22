@@ -1,6 +1,6 @@
 # CityHack22 Project Submission
 
-## Project: < Your CityHack22 Project Name >
+## Project: Study Buddy
 
 <img src="logo.png" width="200" alt="project_logo"/>
 

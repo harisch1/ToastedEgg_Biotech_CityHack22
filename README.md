@@ -2,9 +2,7 @@
 
 ## Project: < Your CityHack22 Project Name >
 
-<img src="../assets/img/LOGOS/logo1.png" width="200" alt="project_logo"/>
-
-< Replace the logo above with Your Project Logo >
+<img src="logo.png" width="200" alt="project_logo"/>
 
 ## Team: ToastedEgg
 
@@ -39,4 +37,4 @@
 
 ## Link
 
--
+-https://youtu.be/qWBntioIEQU

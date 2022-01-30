@@ -1,37 +1,31 @@
-import { useState, useEffect } from 'react'
-import { Navigation } from './components/navigation'
-import { Header } from './components/header'
-import { Features } from './components/features'
-import { SignUp } from './components/SignUp'
-import { About } from './components/about'
-import { Gallery } from './components/gallery'
-import { Footer } from './components/footer'
-import JsonData from './data/data.json'
-import SmoothScroll from 'smooth-scroll'
+import { useState, useEffect } from "react";
+import { Navigation } from "./components/navigation";
+import { Header } from "./components/header";
+import { Features } from "./components/features";
+import { SignUp } from "./components/SignUp";
+import { About } from "./components/about";
+import { Gallery } from "./components/gallery";
+import { Footer } from "./components/footer";
+import JsonData from "./data/data.json";
+import SmoothScroll from "smooth-scroll";
+import Chat from "./components/Chat";
 
 export const scroll = new SmoothScroll('a[href*="#"]', {
   speed: 1000,
   speedAsDuration: true,
-})
+});
 
 const App = () => {
-  const [landingPageData, setLandingPageData] = useState({})
+  const [landingPageData, setLandingPageData] = useState({});
   useEffect(() => {
-    setLandingPageData(JsonData)
-  }, [])
+    setLandingPageData(JsonData);
+  }, []);
 
   return (
     <div>
-      <Navigation />
-      <Header data={landingPageData.Header} />
-      {/* <Features data={landingPageData.Features} /> */}
-      <About data={landingPageData.About} />
-      {/* {/* <Services data={landingPageData.Services} /> */}
-      <Gallery /> */}
-      {/* <Testimonials data={landingPageData.Testimonials} /> */}
-      <Footer />
+      <Chat />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
